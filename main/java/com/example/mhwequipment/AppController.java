@@ -28,4 +28,13 @@ public class AppController {
         return "palico";
 
     }
+    @RequestMapping("/new")
+    public String addWeaponForm(Model model){
+
+        PalicoWeapons weapons = new PalicoWeapons();
+        model.addAttribute("Weapons", weapons);
+
+        return "new_weapons";
+
+    }
 }
