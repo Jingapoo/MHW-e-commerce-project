@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Palico</title>
+</head>
+<body>
+<div align="center">
+    <h1>Jingapoo Equipment</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Equipment ID</th>
+                <th>Name of Weapon</th>
+                <th>Rarity</th>
+                <th>Attack Type</th>
+                <th>Element Damage</th>
+                <th>Crafting Material</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="weapons : ${listWeapons}">
+                <td th:text="${weapons.id}">Equipment ID</td>
+                <td th:text="${weapons.name}">Name of Weapon</td>
+                <td th:text="${weapons.rarity}">Rarity</td>
+                <td th:text="${weapons.attackType}">Attack Type</td>
+                <td th:text="${weapons.elementDamage}">Element Damage</td>
+                <td th:text="${weapons.craftingMaterial}">Crafting Material</td>
+                <td th:text="${weapons.price}">Price</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
