@@ -52,7 +52,11 @@
                 <td style="color:yellow" th:text="${weapons.elementDamage}">Element Damage</td>
                 <td style="color:yellow" th:text="${weapons.craftingMaterial}">Crafting Material</td>
                 <td style="color:yellow" th:text="${weapons.price}">Price</td>
-                <td></td>
+                <td>
+                    <a th:href="@{'/edit/' + ${weapons.id}}" class="btn btn-outline-light">Edit</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete/' + ${weapons.id}}" class="btn btn-danger">Delete</a>
+                </td>
 
             </tr>
         </tbody>

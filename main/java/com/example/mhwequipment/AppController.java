@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -46,5 +48,25 @@ public class AppController {
         service.save(weapons);
 
         return "redirect:/palico";
+    }
+
+    @RequestMapping("/edit/{id}")
+    public ModelAndView editWeapon(@PathVariable(name = "id") Long id){
+
+       ModelAndView mav = new ModelAndView("edit_weapon1");
+
+       PalicoWeapons weapons = service.get(id);
+       mav.addObject("weapons", weapons);
+
+       return mav;
+
+    }
+    @RequestMapping("/delete/{id}")
+    public String deleteWeapon(@PathVariable(name = "id") Long id){
+
+        service.delete(id);
+
+        return "redirect:/palico";
+
     }
 }
