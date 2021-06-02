@@ -2,17 +2,25 @@ package com.example.mhwequipment;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="jingapoo_equipment") // need to specify the name of the table.
 public class PalicoWeapons {
 
     private long id;
+    @NotEmpty
     private String name;
+    @NotNull
     private int rarity;
+    @NotEmpty
     private String attackType;
+    @NotEmpty
     private String elementDamage;
+    @NotEmpty
     private String craftingMaterial;
+    @NotNull
     private double price;
 
     protected PalicoWeapons() {

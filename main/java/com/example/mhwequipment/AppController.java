@@ -4,7 +4,9 @@ package com.example.mhwequipment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -32,9 +34,17 @@ public class AppController {
     public String addWeaponForm(Model model){
 
         PalicoWeapons weapons = new PalicoWeapons();
-        model.addAttribute("Weapons", weapons);
+        model.addAttribute("weapons", weapons);
 
-        return "new_weapons";
+        return "new_weapon";
 
+    }
+
+    @RequestMapping(value ="/save", method = RequestMethod.POST)
+    public String saveWeapon(@ModelAttribute("weapons") PalicoWeapons weapons){
+
+        service.save(weapons);
+
+        return "redirect:/palico";
     }
 }
