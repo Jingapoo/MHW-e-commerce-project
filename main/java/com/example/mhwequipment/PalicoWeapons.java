@@ -9,8 +9,10 @@ import javax.validation.constraints.NotNull;
 @Table(name="jingapoo_equipment") // need to specify the name of the table.
 public class PalicoWeapons {
 
+    @Id  // indicating te member field below is the primary key of current entity
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // to configure the way of increment of the specified column (field) = auto_increment in MySQL
     private long id;
-    @NotEmpty
+    @NotEmpty(message = "Please enter weapon name")
     private String name;
     @NotNull
     private int rarity;
@@ -27,8 +29,6 @@ public class PalicoWeapons {
 
     }
 
-    @Id  // indicating te member field below is the primary key of current entity
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // to configure the way of increment of the specified column (field) = auto_increment in MySQL
     public long getId() {
         return id;
     }
