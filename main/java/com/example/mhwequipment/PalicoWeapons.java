@@ -2,8 +2,7 @@ package com.example.mhwequipment;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name="jingapoo_equipment") // need to specify the name of the table.
@@ -12,17 +11,28 @@ public class PalicoWeapons {
     @Id  // indicating te member field below is the primary key of current entity
     @GeneratedValue(strategy = GenerationType.IDENTITY) // to configure the way of increment of the specified column (field) = auto_increment in MySQL
     private long id;
-    @NotEmpty(message = "Weapon name can't be empty!")
+
+    @NotEmpty(message = "Weapon name cannot be empty!")
+    @Size(min=1, max=50, message = "Weapon name must between {min} and {max} long ")
     private String name;
-    @NotNull
+
+    @NotNull(message = "Please choose the rarity level!")
+    @Min(0)
     private int rarity;
-    @NotEmpty
+
+    @NotEmpty(message = "Please provide the attack type or None")
+    @Size(min=1, max=8, message = "Attack Type must between {min} and {max} long ")
     private String attackType;
-    @NotEmpty
+
+    @NotEmpty(message = "Please provide the Element Damage or None")
+    @Size(min=1,max=20,message = "Element Damage must between {min} and {max} long ")
     private String elementDamage;
-    @NotEmpty
+
+    @NotEmpty(message = "Crafting Material cannot be None!")
+    @Size(min=1,max=100,message = "Crafting Material must between {min} and {max} long ")
     private String craftingMaterial;
-    @NotNull
+
+    @DecimalMin(value = "0.01", message = "The price of weapon must be higher than ${value}")
     private double price;
 
     protected PalicoWeapons() {

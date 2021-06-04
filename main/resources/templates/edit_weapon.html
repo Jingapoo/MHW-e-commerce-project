@@ -37,8 +37,8 @@
             </div>
             <div class="form-group">
                 <label class="form-label mt-4">Weapon Name</label>
-                <input class="form-control form-control-lg" id="name" placeholder="Weapon Name" type="text" th:field="*{name}">
-                <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                <input class="form-control form-control-lg" th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : 'is-valid'" id="name" placeholder="Weapon Name" type="text" th:field="*{name}">
+                <span style="color: red;font-style:italic;" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
             </div>
 
             <div class="form-group">
@@ -55,21 +55,25 @@
 
             <div class="form-group">
                 <label class="form-label mt-4">Attack Type</label>
-                <input class="form-control form-control-lg" id="attack_type" placeholder="Attack Type" type="text" th:field="*{attackType}">
+                <input class="form-control form-control-lg" th:classappend="${#fields.hasErrors('attackType')} ? 'is-invalid' : 'is-valid'" id="attack_type" placeholder="Attack Type" type="text" th:field="*{attackType}">
+                <span style="color: red;font-style:italic;" th:if="${#fields.hasErrors('attackType')}" th:errors="*{attackType}"></span>
             </div>
             <div class="form-group">
                 <label class="form-label mt-4">Element Damage</label>
-                <input class="form-control form-control-lg" id="element_damage" placeholder="Element Damage" type="text" th:field="*{elementDamage}">
+                <input class="form-control form-control-lg" th:classappend="${#fields.hasErrors('elementDamage')} ? 'is-invalid' : 'is-valid'" id="element_damage" placeholder="Element Damage" type="text" th:field="*{elementDamage}">
+                <span style="color: red;font-style:italic;" th:if="${#fields.hasErrors('elementDamage')}" th:errors="*{elementDamage}"></span>
             </div>
             <div class="form-group">
                 <label class="form-label mt-4">Crafting Material</label>
-                <input class="form-control form-control-lg" id="crafting_material" placeholder="Crafting Material" type="text" th:field="*{craftingMaterial}">
+                <input class="form-control form-control-lg" th:classappend="${#fields.hasErrors('craftingMaterial')} ? 'is-invalid' : 'is-valid'" id="crafting_material" placeholder="Crafting Material" type="text" th:field="*{craftingMaterial}">
+                <span style="color: red;font-style:italic;" th:if="${#fields.hasErrors('craftingMaterial')}" th:errors="*{craftingMaterial}"></span>
             </div>
             <div class="form-group">
                 <label class="form-label mt-4">Price</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text">$</span>
-                    <input class="form-control form-control-lg" id="price" type="text" th:field="*{price}">
+                    <input class="form-control form-control-lg" th:classappend="${#fields.hasErrors('price')} ? 'is-invalid' : 'is-valid'" id="price" type="text" th:field="*{price}">
+                    <span style="color: red;font-style:italic;" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
                 </div>
             </div>
             <br/><br/>
