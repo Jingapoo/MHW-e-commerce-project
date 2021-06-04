@@ -53,11 +53,12 @@ public class AppController {
          * that may have occurred. The BindingResult must come right after the model object that is validated
          * or else Spring will fail to validate the object and throw an exception
          */
-        service.save(weapons);
+        System.out.println(weapons); // !important, print out the server side error message.
 
         if(validation.hasErrors()){
             return "new_weapon";
         }else{
+            service.save(weapons);
             return "redirect:/palico";
         }
 

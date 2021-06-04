@@ -12,7 +12,7 @@ public class PalicoWeapons {
     @Id  // indicating te member field below is the primary key of current entity
     @GeneratedValue(strategy = GenerationType.IDENTITY) // to configure the way of increment of the specified column (field) = auto_increment in MySQL
     private long id;
-    @NotEmpty(message = "Please enter weapon name")
+    @NotEmpty(message = "Weapon name can't be empty!")
     private String name;
     @NotNull
     private int rarity;

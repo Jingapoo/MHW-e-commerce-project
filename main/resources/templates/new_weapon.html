@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label class="form-label mt-4">Weapon Name</label>
                 <input class="form-control form-control-lg" id="name" placeholder="Weapon Name" type="text" th:field="*{name}">
-                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Please enter weapon name</span>
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
             </div>
 
             <div class="form-group">
