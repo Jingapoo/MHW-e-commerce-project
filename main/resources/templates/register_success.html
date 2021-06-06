@@ -16,22 +16,14 @@
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Monster Hunter World E-Commerce</title>
+    <title>Registration Succeeded</title>
 </head>
 <body>
-<!--including header-->
-<div th:replace="header :: header"></div>
-
 <div class="container-fluid">
-    <img th:src="@{/images/monsters.jpg}" class="img-fluid"/>
-    <div class="carousel-caption"> <!--This will put text on top of image-->
-        <h1 style="color:yellow">Welcome to Monster Hunter World E-Commerce</h1>
-        <p></p>
-        <h2 style="color:yellow">Are you a Hunter or a Palico</h2>
-       <br/><br/>
-        <a href="#" class="btn btn-outline-warning btn-lg">Hunter</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a th:href="@{palico}" class="btn btn-outline-warning btn-lg">Palico</a>
+    <div class="alert alert-dismissible alert-success">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <h1><strong>Congratulations!</strong> You have signed up successfully!</h1>
+        <h2><a class="alert-link" th:href="@{/login}">Please click here to login</a></h2>
     </div>
 </div>
 </body>

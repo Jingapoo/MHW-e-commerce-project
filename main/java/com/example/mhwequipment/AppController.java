@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
@@ -18,6 +15,8 @@ import java.util.List;
 public class AppController {
     @Autowired
     private EquipmentService service;
+    @Autowired
+    private UserRepository repo;
 
     @RequestMapping("/")
     public String HomePage(){
@@ -25,6 +24,31 @@ public class AppController {
         return "index";
 
     }
+
+    @GetMapping("/register")
+    public String SignUp(Model model){
+
+        model.addAttribute("user", new User());
+
+        return "sign_up";
+    }
+
+    @PostMapping("/process_register")
+    public String processRegistration(User user){
+
+        repo.save(user);
+
+        return "register_success";
+    }
+
+    @PostMapping("/login")
+    public String logIn(User user){
+
+        repo.save(user);
+
+        return "register_success";
+    }
+
     @RequestMapping("/palico")
     public String Palico(Model model){
 
