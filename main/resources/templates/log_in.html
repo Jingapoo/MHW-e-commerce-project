@@ -16,37 +16,26 @@
   <!-- Required meta tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Please Sign in</title>
 </head>
-<!--including header-->
-<div th:fragment="header">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand" th:href="@{/}">Monster Hunter World E-Commerce</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" th:href="@{/}">Home
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
-          <div class="dropdown-menu" style="background-color: black; text-align: justify;">
-              <a class="btn btn-secondary my-2 my-sm-0" th:href="@{/login}">Sign In</a>
-              <div class="dropdown-divider"></div>
-              <a class="btn btn-link" th:href="@{register}">Sign Up</a>
-          </div>
-        </li>
-      </form>
-    </div>
+<body>
+<div class="container-fluid text-center">
+  <img th:src="@{/images/theme.png}" class="img-fluid"/>
+  <div class="carousel-caption" style="top:25%"> <!--This will put text on top of image-->
+    <form th:action="@{/login}" method="post" style="width:70%; margin-left:auto;margin-right:auto;">
+      <div class="card border-primary mb-3" style="max-width: 50rem;">
+        <div class="card-header text-center" style="color:yellow"><h1>Sign In</h1></div>
+        <div class="card-body">
+          <input class="form-control form-control-lg" name="username" placeholder="Username" type="text">
+          <br/>
+          <input class="form-control form-control-lg" name="pass" placeholder="Password" type="password">
+          <br/><br/>
+          <button type="submit" class="btn btn-primary btn-lg" value="Login">Log In</button>
+        </div>
+      </div>
+    </form>
   </div>
-</nav>
-
 </div>
+
+</body>
 </html>

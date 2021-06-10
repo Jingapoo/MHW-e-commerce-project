@@ -2,6 +2,7 @@ package com.example.mhwequipment;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,20 +37,30 @@ public class AppController {
     @PostMapping("/process_register")
     public String processRegistration(User user){
 
+        /**
+         * BCryptPasswordEncoder to encode the user’s password so the password itself
+         * won't stored in database (for better security) – only the hash value of the password is stored.
+         */
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+
         repo.save(user);
 
         return "register_success";
     }
 
-    @PostMapping("/login")
-    public String logIn(User user){
+    /**
+     * Login Page
+     */
+    @GetMapping("/login") // related to .loginPage("/login")
+    public String logInPage(){
 
-        repo.save(user);
-
-        return "register_success";
+        return "log_in";
     }
 
-    @RequestMapping("/palico")
+    @GetMapping("/palico")
     public String Palico(Model model){
 
         List<PalicoWeapons> listWeapons = service.listAll();
@@ -106,5 +117,10 @@ public class AppController {
 
         return "redirect:/palico";
 
+    }
+
+    @GetMapping("/403")
+    public String access403(){
+        return "403";
     }
 }
