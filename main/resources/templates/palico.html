@@ -25,11 +25,10 @@
 <div class="container-fluid">
     <div class="row align-items-center">
         <h1 class="text-center">[[${#httpServletRequest.remoteUser}]] Inventory</h1>
-        <form th:action="@{/logout}" method="post">
-            <button type="submit" class="btn btn-outline-danger btn-lg" value="Logout">Log Out</button>
-        </form>
-    </div>
     <br/>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="btn btn-outline-danger" value="Logout">Log Out</button>
+        </form>
     <div class="row align-items-center">
         <a th:href="@{new}" class="text-center btn btn-outline-light" style="width:10%;margin-left:auto;margin-right:auto;">Create a new Weapon</a>
     </div>

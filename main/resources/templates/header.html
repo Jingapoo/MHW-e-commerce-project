@@ -35,14 +35,7 @@
         </li>
       </ul>
       <form class="d-flex">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
-          <div class="dropdown-menu" style="background-color: black; text-align: justify;">
-              <a class="btn btn-secondary my-2 my-sm-0" th:href="@{/login}">Sign In</a>
-              <div class="dropdown-divider"></div>
-              <a class="btn btn-link" th:href="@{register}">Sign Up</a>
-          </div>
-        </li>
+          <a>[[${#httpServletRequest.remoteUser}]]</a>
       </form>
     </div>
   </div>

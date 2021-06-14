@@ -1,6 +1,12 @@
-package com.example.mhwequipment;
+package com.example.mhwequipment.clients;
 
+/**
+ * This class manages information in a database – with standard CRUD operations:
+ * Create, Retrieve, Update and Delete. It is a Spring Boot CRUD with Spring MVC
+ */
 
+import com.example.mhwequipment.clients.EquipmentRepository;
+import com.example.mhwequipment.clients.PalicoWeapons;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

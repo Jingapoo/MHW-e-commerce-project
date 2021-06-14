@@ -1,4 +1,4 @@
-package com.example.mhwequipment;
+package com.example.mhwequipment.clients;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

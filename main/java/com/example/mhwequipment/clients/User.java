@@ -1,4 +1,4 @@
-package com.example.mhwequipment;
+package com.example.mhwequipment.clients;
 
 
 import javax.persistence.*;

@@ -1,4 +1,4 @@
-package com.example.mhwequipment;
+package com.example.mhwequipment.clients;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +14,16 @@ import java.util.List;
 
 @Controller
 public class AppController {
+
     @Autowired
-    private EquipmentService service;
+    private EquipmentService service; // CRUD Operations for equipment
     @Autowired
-    private UserRepository repo;
+    private UserRepository repo; // User Role-based
 
     @RequestMapping("/")
     public String HomePage(){
 
-        return "index";
+        return "home";
 
     }
 

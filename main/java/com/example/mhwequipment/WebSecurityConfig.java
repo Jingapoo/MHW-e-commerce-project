@@ -108,13 +108,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 /**
                  * Below code creates rules that requires authentication for
                  * all endpoints except /palico and enables HTTP basic authentication.
+                 * .antMatchers("/").permitAll() will show the home page
+                 * but need click button to direct to log in page
                  */
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/").permitAll()
+                .antMatchers("/register").permitAll()
                 .antMatchers(staticResources).permitAll()
-                .antMatchers("/new").hasAuthority("ADMIN")
-                .antMatchers("/delete/**").hasAuthority("ADMIN")
-                .antMatchers("/edit/**").hasAuthority("ADMIN")
+                /**
+                 * Security Role-based Authorization
+                 */
+//                .antMatchers("/new").hasAuthority("ROLE_ADMIN")
+//                .antMatchers("/delete/**").hasAuthority("ROLE_ADMIN")
+//                .antMatchers("/edit/**").hasAuthority("ROLE_ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 /**
@@ -133,6 +140,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .loginPage("/login")
                     .usernameParameter("username")
                     .passwordParameter("pass")
+                    .loginProcessingUrl("/doLogin")
+                    .defaultSuccessUrl("/")
                     .permitAll()
 
 //                    .loginProcessingUrl("/perform_login")
@@ -141,7 +150,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                    .failureUrl("/login_error")
 
                 .and()
-                .logout().permitAll()
+                .logout()
+                .logoutSuccessUrl("/login").permitAll()
                 .and()
                 .exceptionHandling().accessDeniedPage("/403")
                 ;
